@@ -44,10 +44,9 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
-            'username' => 'my_app',
-            'password' => 'secret',
-
-            'database' => 'my_app',
+            'username' => env('DATABASE_USERNAME', 'root'),
+            'password' => env('DATABASE_PASSWORD', 'root'),
+            'database' => env('DATABASE_NAME', 'placeresa'),
             /*
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
@@ -57,7 +56,7 @@ return [
             /*
              * You can use a DSN string to set the entire configuration
              */
-            'url' => env('DATABASE_URL', null),
+            //'url' => env('DATABASE_URL', null),
         ],
 
         /*
