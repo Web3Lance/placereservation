@@ -20,7 +20,7 @@
        <!-- text input -->
        <div class="form-group">
            <label>Date de naissance (Année)</label>
-           <input type="text" required class="form-control" placeholder="Date de naissance" name="birthdate">
+           <input type="date" required class="form-control" placeholder="Date de naissance" name="birthdate">
        </div>
    </div>
    <div class="col-sm-6">

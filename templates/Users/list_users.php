@@ -22,7 +22,7 @@
                           <td><?= $data->id ?></td>
                           <td><?= $data->lastname ?></td>
                           <td><?= $data->firstname ?></td>
-                          <td><?= $data->birhtdate ?></td>
+                          <td><?= $data->birthdate ?></td>
                           <td><?= $data->email ?></td>
                           <td><?= $data->phone_no ?></td>
                           <td>

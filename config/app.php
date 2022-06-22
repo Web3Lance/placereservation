@@ -186,6 +186,7 @@ return [
         'log' => true,
         'trace' => true,
         'ignoredDeprecationPaths' => [],
+        'vendor/cakephp/cakephp/src/Routing/Route/Route.php',
     ],
 
     /*
