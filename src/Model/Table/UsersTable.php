@@ -17,7 +17,7 @@ class UsersTable extends Table
         $validator->notEmptyString('firstname');
         $validator->notEmptyString('birthdate');
         $validator->notEmptyString('email');
-        $validator->notEmptyString('phone_no');
+        $validator->notEmptyString('phone');
         return $validator;
     }
 }

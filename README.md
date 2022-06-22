@@ -21,9 +21,9 @@ composer install
 
 ## Configuration
 
-1. import `db/placeresa.sql` in your database
-2. copy `.env.example` to `.env`
-3. edit `.env` to fit your config 
+1. copy `.env.example` to `.env`
+2. edit `.env` to fit your config 
+3. import db with `bin/cake migrations migrate` 
 
 ## Run the app
 
