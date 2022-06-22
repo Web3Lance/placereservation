@@ -11,6 +11,6 @@ class User extends Entity
         "firstname" => true,
         "birthdate" => true,
         "email" => true,
-        "phone_no" => true
+        "phone" => true
     ];
 }

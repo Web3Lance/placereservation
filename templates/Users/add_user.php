@@ -6,7 +6,7 @@
        <!-- text input -->
        <div class="form-group">
            <label>Nom</label>
-           <input type="text" required class="form-control" placeholder="Nom" name="lastname">
+           <input type="text" class="form-control" placeholder="Nom" name="lastname">
        </div>
    </div>
    <div class="col-sm-6">
