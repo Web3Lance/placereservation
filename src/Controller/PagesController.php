@@ -70,4 +70,10 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    public function home()
+    {
+        $this->set("title", "Accueil");
+        $this->viewBuilder()->setLayout('default');
+    }
 }
