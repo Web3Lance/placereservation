@@ -22,7 +22,10 @@ class UsersController extends AppController
                 $this->Flash->success(__('The user has been created.'));
                 return $this->redirect(['action' => 'listUsers']);
             }
-            $this->Flash->error(__('Failed to create user. Please, try again.'));
+            if ($user->errors()) {
+                $this->Flash->error(__('Failed to create user. Please, try again.'));
+                // Entity failed validation.
+            }
         }
         $this->set("title", "Add User");
         $this->set(compact("user"));
@@ -30,7 +33,7 @@ class UsersController extends AppController
 
     public function listUsers()
     {
-        $users = $this->Users->find()->all();
+        $users = $this->Users->find();
         $this->set("title", "List User");
         $this->set(compact("users"));
     }
