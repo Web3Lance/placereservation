@@ -6,10 +6,16 @@ use App\Controller\AppController;
 
 class UsersController extends AppController
 {
+    public $paginate = [
+        'limit' => 5,
+        'finder' => 'published',    
+       
+    ];
     public function initialize(): void
     {
         parent::initialize();
         $this->viewBuilder()->setLayout('admin');
+        $this->loadComponent('Paginator');
         $this->loadModel("Users");
     }
 
@@ -33,7 +39,7 @@ class UsersController extends AppController
 
     public function listUsers()
     {
-        $users = $this->Users->find();
+        $users = $this->Paginator->paginate($this->Users->find());
         $this->set("title", "List User");
         $this->set(compact("users"));
     }
