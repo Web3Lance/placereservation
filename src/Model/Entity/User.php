@@ -7,7 +7,9 @@ use Cake\ORM\Entity;
 class User extends Entity
 {
     protected $_accessible = [
-        "name" => true,
+        "lastname" => true,
+        "firstname" => true,
+        "birthdate" => true,
         "email" => true,
         "phone_no" => true
     ];

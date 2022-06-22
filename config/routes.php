@@ -45,10 +45,10 @@ return static function (RouteBuilder $routes) {
     $routes->setRouteClass(DashedRoute::class);
 
     $routes->scope('/', function (RouteBuilder $builder) {
-        $builder->connect('/add-user', ['controller' => 'User', 'action' => 'addUser']);
-        $builder->connect('/edit-user/:id', ['controller' => 'User', 'action' => 'editUser'], ["pass" => ["id"]]);
-        $builder->connect('/delete-user/:id', ['controller' => 'User', 'action' => 'deleteUser'], ["pass" => ["id"]]);
-        $builder->connect('/list-user', ['controller' => 'User', 'action' => 'listUsers']);
+        $builder->connect('/add-user', ['controller' => 'Users', 'action' => 'addUser']);
+        $builder->connect('/edit-user/:id', ['controller' => 'Users', 'action' => 'editUser'], ["pass" => ["id"]]);
+        $builder->connect('/delete-user/:id', ['controller' => 'Users', 'action' => 'deleteUser'], ["pass" => ["id"]]);
+        $builder->connect('/list-user', ['controller' => 'Users', 'action' => 'listUsers']);
         $builder->fallbacks();
     });
 };
