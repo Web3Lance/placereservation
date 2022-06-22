@@ -30,7 +30,7 @@ class UsersController extends AppController
 
     public function listUsers()
     {
-        $users = $this->Users->find()->toList();
+        $users = $this->Users->find()->all();
         $this->set("title", "List User");
         $this->set(compact("users"));
     }
