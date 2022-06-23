@@ -52,8 +52,13 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/reservations', ['controller' => 'Reservations', 'action' => 'listReservations']);
         $builder->connect('/detail-reservation/:id', ['controller' => 'Reservations', 'action' => 'detailReservation'], ["pass" => ["id"]]);
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'home']);
-        $builder->connect('/new', ['controller' => 'Reservations', 'action' => 'addReservation']);
+        $builder->connect('/new', ['controller' => 'Pages', 'action' => 'new']);
+        $builder->connect('/load-users', ['controller' => 'Pages', 'action' => 'loadUsers']);
         $builder->connect('/reservation/:id', ['controller' => 'Reservations', 'action' => 'addUsersreservation'], ["pass" => ["id"]]);
+        
+         // Ajax Routes
+        $builder->connect('/ajax-add-user', ['controller' => 'Ajax', 'action' => 'ajaxAddUser']);
+
         $builder->fallbacks();
     });
 };
