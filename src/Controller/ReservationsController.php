@@ -29,11 +29,15 @@ class ReservationsController extends AppController
         $reservation = $this->Reservations->get($id, [
             'contain' => [],
         ]);
+        $users = $this->Users->find('all', array(
+            'conditions' => array('reservation_id' =>$id)));
+
         if ($this->request->is(['post'])) {
             $reservation = $this->Reservations->patchEntity($reservation, $this->request->getData());
         }
-        $this->set(compact('reservation'));
+        $this->set(compact("users"));
         $this->set("title", "Detail reservation");
+        
     }
 
     
