@@ -15,9 +15,9 @@ class UsersTable extends Table
     {
         $validator->notEmptyString('lastname');
         $validator->notEmptyString('firstname');
-        $validator->notEmptyString('birthdate');
         $validator->notEmptyString('email');
         $validator->notEmptyString('phone');
+        $validator->notEmptyString('reservation_id');
         return $validator;
     }
 }

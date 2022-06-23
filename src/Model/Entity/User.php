@@ -9,8 +9,8 @@ class User extends Entity
     protected $_accessible = [
         "lastname" => true,
         "firstname" => true,
-        "birthdate" => true,
         "email" => true,
-        "phone" => true
+        "phone" => true,
+        "reservation_id" => true
     ];
 }

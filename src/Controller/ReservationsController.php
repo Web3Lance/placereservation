@@ -39,6 +39,24 @@ class ReservationsController extends AppController
         $this->set("title", "Detail reservation");
         
     }
+    public function addReservation(){
+        $reservations = $this->Reservations->find();
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The reservation has been created.'));
+                return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+            }
+            if ($user->errors()) {
+                $this->Flash->error(__('Failed to create user. Please, try again.'));
+                // Entity failed validation.
+            }
+        }
+        $this->set("title", "Nouveau réservation");
+        $this->set(compact("user",'reservations'));
+        $this->viewBuilder()->setLayout('default');
+    }
 
     
     
