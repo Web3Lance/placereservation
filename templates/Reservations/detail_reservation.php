@@ -15,7 +15,7 @@
   </thead>
   <tbody>
       <?php
-        if (count($users) > 0) {
+        if (count(array($users)) > 0) {
             foreach ($users as $key=>$data) {
                 ?>
                     <tr>

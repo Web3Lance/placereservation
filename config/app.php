@@ -180,13 +180,12 @@ return [
      *   your application that still emit deprecations.
      */
     'Error' => [
-        'errorLevel' => E_ALL,
+        'errorLevel' => E_ALL & ~E_USER_DEPRECATED,
         'exceptionRenderer' => ExceptionRenderer::class,
         'skipLog' => [],
         'log' => true,
         'trace' => true,
-        'ignoredDeprecationPaths' => [],
-        'vendor/cakephp/cakephp/src/Routing/Route/Route.php',
+        'ignoredDeprecationPaths' => ['vendor/cakephp/cakephp/src/Routing/Route/Route.php'],
     ],
 
     /*
