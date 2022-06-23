@@ -49,6 +49,8 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/edit-user/:id', ['controller' => 'Users', 'action' => 'editUser'], ["pass" => ["id"]]);
         $builder->connect('/delete-user/:id', ['controller' => 'Users', 'action' => 'deleteUser'], ["pass" => ["id"]]);
         $builder->connect('/users', ['controller' => 'Users', 'action' => 'listUsers']);
+        $builder->connect('/reservations', ['controller' => 'Reservations', 'action' => 'listReservations']);
+        $builder->connect('/detail-reservation/:id', ['controller' => 'Reservations', 'action' => 'detailReservation'], ["pass" => ["id"]]);
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'home']);
         $builder->fallbacks();
     });
