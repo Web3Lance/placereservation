@@ -70,17 +70,15 @@
                         <div class="row custom-padding">
                         <div class="col-sm-6">
                             <!-- Select multiple-->
-                            <div class="form-group">
-                                <button class="btn btn-primary">Submit</button>
+                            <div class="modal-footer">
+                                <button  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button  class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                         </div>
                         <?= $this->Form->end() ?>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+           
                 </div>
             </div>
         </div>

@@ -1,8 +1,6 @@
 <table id="tbl-users-list" class="table table-bordered table-striped">
   <thead>
-      <tr>
-            <td colspan="5" align="right"><a href="<?= $this->Url->build('/add-user/', ['fullBase' => true]) ?>">Add User</a></td>
-       </tr>
+      
       <tr>
           <th>ID</th>
           <th>Date</th>
