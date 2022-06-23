@@ -19,6 +19,14 @@ class CreateReservations extends AbstractMigration
             'autoIncrement' => true,
             'limit' => 5
         ]);
+        $table->addColumn('start_date', 'date', [
+            'limit' => 120,
+            'null' => false,
+        ]);
+        $table->addColumn('end_date', 'date', [
+            'limit' => 120,
+            'null' => false,
+        ]);
         $table->addColumn('created_at', 'timestamp', [
             'default' => 'CURRENT_TIMESTAMP',
             'null' => false,

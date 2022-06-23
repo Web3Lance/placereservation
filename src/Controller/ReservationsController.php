@@ -40,13 +40,12 @@ class ReservationsController extends AppController
         
     }
     public function addReservation(){
-        $reservations = $this->Reservations->find();
-        $user = $this->Users->newEmptyEntity();
+        $reservation = $this->Reservations->newEmptyEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
+            $user = $this->Users->patchEntity($reservation, $this->request->getData());
+            if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been created.'));
-                return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+                return $this->redirect(['action' => 'addUsersreservation',"id" => $reservation->id,]);
             }
             if ($user->errors()) {
                 $this->Flash->error(__('Failed to create user. Please, try again.'));
@@ -54,7 +53,24 @@ class ReservationsController extends AppController
             }
         }
         $this->set("title", "Nouveau réservation");
-        $this->set(compact("user",'reservations'));
+        $this->set(compact('reservation'));
+        $this->viewBuilder()->setLayout('default');
+    }
+
+    public function addUsersreservation($id){
+
+        $reservation = $this->Reservations->get($id, [
+            'contain' => [],
+        ]);
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been created.'));
+            }
+        }
+        $this->set("title", "Ajouter utilisateurs pour cette réservation");
+        $this->set(compact('reservation','user'));
         $this->viewBuilder()->setLayout('default');
     }
 

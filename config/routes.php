@@ -53,6 +53,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/detail-reservation/:id', ['controller' => 'Reservations', 'action' => 'detailReservation'], ["pass" => ["id"]]);
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'home']);
         $builder->connect('/new', ['controller' => 'Reservations', 'action' => 'addReservation']);
+        $builder->connect('/reservation/:id', ['controller' => 'Reservations', 'action' => 'addUsersreservation'], ["pass" => ["id"]]);
         $builder->fallbacks();
     });
 };
