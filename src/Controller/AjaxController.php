@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use SebastianBergmann\Environment\Console;
 
 class AjaxController extends AppController
 {
@@ -11,6 +12,25 @@ class AjaxController extends AppController
         parent::initialize();
        
         $this->loadModel("Users");
+        $this->loadModel("Reservations");
+    }
+
+    public function newstatus($id){
+        
+        $reservation = $this->Reservations->get($id, [
+            'contain' => [],
+        ]);
+            $reservation->status = "waiting";
+            if ($this->Reservations->save($reservation)) {
+
+                echo json_encode(array(
+                    "status" => 1,
+                    "message" => "User has been created"
+                )); 
+                return $this->redirect(['controller' => 'Pages','action' => 'home',]);
+
+            }
+
     }
 
     public function ajaxAddUser(){

@@ -58,6 +58,8 @@ return static function (RouteBuilder $routes) {
         
          // Ajax Routes
         $builder->connect('/ajax-add-user', ['controller' => 'Ajax', 'action' => 'ajaxAddUser']);
+        $builder->connect('/changestatus/:id', ['controller' => 'Ajax', 'action' => 'newstatus'], ["pass" => ["id"]]);
+
 
         $builder->fallbacks();
     });

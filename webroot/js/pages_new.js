@@ -18,6 +18,7 @@ $(document).ready( function () {
       { data: "id" },
       { data: "lastname" },
       { data: "firstname" },
+      { data: "birthdate" },
       { data: "email" },
       { data: "phone" }
     ],
@@ -49,10 +50,6 @@ $(document).ready( function () {
               $('#userModal').modal('hide')
             }
         });
-
-
- 
-
       return false;
     }
   });

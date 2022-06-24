@@ -3,24 +3,8 @@
       <tr>
             <td colspan="5" align="right"><a href="<?= $this->Url->build('/add-user/', ['fullBase' => true]) ?>">Add User</a></td>
        </tr>
-      <tr>
-          <th>ID</th>
-          <th>Début</th>
-          <th>Fin</th>
-          <th>Ajouter utilisateurs pour cette réservation</th>
-      </tr>
   </thead>
     <tbody>
-        <tr>
-            <td><?= $reservation->id ?></td>
-            <td><?= $reservation->start_date ?></td>
-            <td><?= $reservation->end_date ?></td>
-            <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Add user
-                </button>
-            </td>
-        </tr>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

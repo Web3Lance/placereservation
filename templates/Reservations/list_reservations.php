@@ -8,7 +8,7 @@
   </thead>
   <tbody>
       <?php
-        if (count($reservations) > 0) {
+        if (count(array($reservations)) > 0) {
             foreach ($reservations as $index => $data) {
                 ?>
                       <tr>

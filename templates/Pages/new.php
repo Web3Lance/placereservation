@@ -24,6 +24,7 @@
           <th>ID</th>
           <th>Nom</th>
           <th>Prénom</th>
+          <th>Date de naissance</th>
           <th>Email</th>
           <th>Téléphone</th>
         </tr>
@@ -32,7 +33,7 @@
     </table>
   <div class="row">
     <div class="col text-center">
-      <button type="button" class="btn btn-default btn-lg">ENVOYER MAINTENANT</button>
+      <a href="<?= $this->Url->build('/changestatus/' . $reservation->id, ['fullBase' => true]) ?>" class="btn btn-default btn-lg">ENVOYER MAINTENANT</a>
     </div>
   </div>
 <!-- Modal -->
@@ -62,6 +63,12 @@
           </div>
         </div>
         <div class="form-group row">
+          <label for="prenom" class="col-sm-2 col-form-label">Né(e) - Année</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="datenaissance" name="birthdate" placeholder="Date de naissance" required="required" data-error="La date de naissance est oblicatoire.">
+          </div>
+        </div>
+        <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
             <input type="text" class="form-control-plaintext" id="staticEmail" name="email" placeholder="email@domain.com" required="required" data-error="Email est oblicatoire.">
@@ -74,11 +81,10 @@
             <input type="tel" class="form-control" id="phone" name="phone" placeholder="Téléphone" required="required" data-error="Tél. est oblicatoire.">
           </div>
         </div>
-        <input type="hidden" name="reservation_id" value="<?php echo $reservation->id ?>"
-        
+        <input type="hidden" name="reservation_id" value="<?php echo $reservation->id ?>" />
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         <button type="submit" class="btn btn-primary">Eregistrer</button>
       </div>
       </form>
