@@ -26,7 +26,7 @@
                         <td>
                             <form id="frm-delete-user-<?= $data->id ?>" action="<?= $this->Url->build('/delete-user/' . $data->id, ['fullBase' => false]) ?>" method="post"><input type="hidden" value="<?= $data->id ?>" name="id" /></form>
                             <a href="<?= $this->Url->build('/edit-user/' . $data->id, ['fullBase' => true]) ?>" class="btn btn-warning">Edit</a>
-                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure want to delete ?')){ $('#frm-delete-user-<?= $data->id ?>').submit() }" class="btn btn-danger">Delete</a>
+                            <a href="<?= $this->Url->build('/delete-user/' . $data->id, ['fullBase' => true]) ?>" class="btn btn-danger">Delete</a>
                         </td>
 
                     </tr>

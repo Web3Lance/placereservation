@@ -75,8 +75,6 @@ class ReservationsController extends AppController
         $this->set("title", "Ajouter utilisateurs pour cette réservation");
         $this->set(compact('reservation','user'));
         $this->viewBuilder()->setLayout('default');
-    }
-
-    
+    } 
     
 }
