@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Core\Configure;
-use Cake\Datasource\ConnectionManager;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
@@ -32,13 +31,10 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
-    public $db;
-
     public function initialize(): void
     {
         parent::initialize();
         $this->loadModel("Reservations");
-        $this->db = ConnectionManager::get("default");
         
     }
 
@@ -93,56 +89,6 @@ class PagesController extends AppController
         $reservation->status = 'new';
         if ($this->Reservations->save($reservation)) {
             $this->set(compact("reservation"));
-        }
-    }
-    public function loadUsers()
-    {
-        if ($this->request->is("ajax")) {
-            // Used when ajax loads data
-            $params['draw'] = $_REQUEST['draw'];
-            $start = $_REQUEST['start'];
-            $length = $_REQUEST['length'];
-            /* If we pass any extra data in request from ajax */
-            //$value1 = isset($_REQUEST['key1'])?$_REQUEST['key1']:"";
-
-            /* Value we will get from typing in search */
-            $search_value = $_REQUEST['search']['value'];
-
-            if (!empty($search_value)) {
-                // If we have value in search, searching by id, name, email, mobile
-
-                // count all data
-                $total_count = $this->db->execute("SELECT * from users 
-                    WHERE lastname like '%" . $search_value . "%' 
-                    OR firstname like '%" . $search_value . "%' 
-                    OR email like '%" . $search_value . "%' 
-                    OR phone like '%" . $search_value . "%'"
-                )->fetchAll('assoc');
-
-                $data = $this->db->execute("SELECT * from users 
-                    WHERE firstname like '%" . $search_value . "%' 
-                    OR lastname like '%" . $search_value . "%' 
-                    OR email like '%" . $search_value . "%' 
-                    OR phone like '%" . $search_value . "%' limit $start, $length"
-                )->fetchAll('assoc');
-
-            } else {
-                // count all data
-                $total_count = $this->db->execute("SELECT * from users")->fetchAll('assoc');
-
-                // get per page data
-                $data = $this->db->execute("SELECT * from users limit $start, $length")->fetchAll('assoc');
-            }
-
-            $json_data = array(
-                "draw" => intval($params['draw']),
-                "recordsTotal" => count($total_count),
-                "recordsFiltered" => count($total_count),
-                "data" => $data   // total data array
-            );
-
-            echo json_encode($json_data);
-            die;
         }
     }
 }

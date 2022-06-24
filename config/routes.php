@@ -53,10 +53,10 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/detail-reservation/:id', ['controller' => 'Reservations', 'action' => 'detailReservation'], ["pass" => ["id"]]);
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'home']);
         $builder->connect('/new', ['controller' => 'Pages', 'action' => 'new']);
-        $builder->connect('/load-users', ['controller' => 'Pages', 'action' => 'loadUsers']);
         $builder->connect('/reservation/:id', ['controller' => 'Reservations', 'action' => 'addUsersreservation'], ["pass" => ["id"]]);
         
          // Ajax Routes
+        $builder->connect('/load-users', ['controller' => 'Ajax', 'action' => 'loadUsers']);
         $builder->connect('/ajax-add-user', ['controller' => 'Ajax', 'action' => 'ajaxAddUser']);
         $builder->connect('/changestatus/:id', ['controller' => 'Ajax', 'action' => 'newstatus'], ["pass" => ["id"]]);
 
