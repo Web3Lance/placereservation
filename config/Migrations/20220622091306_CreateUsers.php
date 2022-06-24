@@ -29,6 +29,10 @@ class CreateUsers extends AbstractMigration
             'limit' => 120,
             'null' => false,
         ]);
+        $table->addColumn('birthdate', 'string', [
+            'limit' => 120,
+            'null' => false,
+        ]);
         $table->addColumn('email', 'string', [
             'limit' => 120,
             'null' => false,

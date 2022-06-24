@@ -18,7 +18,9 @@ class ReservationsController extends AppController
     
     public function listReservations()
     {
-       $reservations = $this->Paginator->paginate($this->Reservations->find());
+       $reservations = $this->Reservations->find('all', array(
+        'conditions' => ['Reservations.status !=' =>'new']
+       ));
        $users = $this->Reservations->find();
         $this->set("title", "List Reservations");
         $this->set(compact("reservations"));
