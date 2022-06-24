@@ -8,7 +8,12 @@
 <?php echo $this->Html->scriptBlock(sprintf(
     'var csrfToken = %s;',
     json_encode($this->request->getAttribute('csrfToken'))
-)); ?>
+));
+ echo $this->Html->scriptBlock(sprintf(
+  'var reservation_id = %s;',
+  json_encode($reservation->id)
+));
+?>
   <div class="container">
     <div class="messages"></div>
     <br/>

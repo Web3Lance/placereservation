@@ -1,5 +1,4 @@
 $(document).ready( function () {
-   
   // datatables
   var table = $('#tbl-users-data').DataTable({
     lengthMenu: [[ 10, 30, -1], [ 10, 30, "All"]], // page length options
@@ -12,6 +11,9 @@ $(document).ready( function () {
       type: "post",
       headers: {
         'X-CSRF-TOKEN': csrfToken
+      },
+      data: {
+        reservation_id: reservation_id
       }
     },
     columns: [
