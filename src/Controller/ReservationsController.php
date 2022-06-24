@@ -44,11 +44,11 @@ class ReservationsController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($reservation, $this->request->getData());
             if ($this->Reservations->save($reservation)) {
-                $this->Flash->success(__('The reservation has been created.'));
+                $this->Flash->success(__('La réservation a été créée.'));
                 return $this->redirect(['action' => 'addUsersreservation',"id" => $reservation->id,]);
             }
             if ($user->errors()) {
-                $this->Flash->error(__('Failed to create user. Please, try again.'));
+                $this->Flash->error(__('Échec de la création la réservation.'));
                 // Entity failed validation.
             }
         }
@@ -69,7 +69,7 @@ class ReservationsController extends AppController
                 $this->set('user',$user);
             }
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been created.'));
+                $this->Flash->success(__('L\'utilisateur a été créé.'));
             }
         }
         $this->set("title", "Ajouter utilisateurs pour cette réservation");

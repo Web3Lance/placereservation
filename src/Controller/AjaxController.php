@@ -26,21 +26,21 @@ class AjaxController extends AppController
             $student = $this->Users->patchEntity($student, $this->request->getData());
             if ($this->Users->save($student)) {
 
-                $this->Flash->success(__('User has been created'));
+                $this->Flash->success(__('L\'utilisateur a été créé'));
 
                 echo json_encode(array(
                     "status" => 1,
-                    "message" => "User has been created"
+                    "message" => "L'utilisateur a été créé"
                 )); 
 
                 exit;
             }
 
-            $this->Flash->error(__('Failed to save student data'));
+            $this->Flash->error(__('Échec de l\'enregistrement des données utilisateur'));
 
             echo json_encode(array(
                 "status" => 0,
-                "message" => "Failed to create"
+                "message" => "Échec de la création"
             )); 
 
             exit;

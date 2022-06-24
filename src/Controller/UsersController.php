@@ -25,11 +25,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been created.'));
+                $this->Flash->success(__('L\'utilisateur a été créé.'));
                 return $this->redirect(['action' => 'listUsers']);
             }
             if ($user->errors()) {
-                $this->Flash->error(__('Failed to create user. Please, try again.'));
+                $this->Flash->error(__('Échec de la création de l\'utilisateur. Veuillez réessayer.'));
                 // Entity failed validation.
             }
         }
@@ -52,11 +52,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user data has been updated successfully.'));
+                $this->Flash->success(__('Les données utilisateur ont été mises à jour avec succès.'));
 
                 return $this->redirect(['action' => 'listUsers']);
             }
-            $this->Flash->error(__('The user could not be updated. Please, try again.'));
+            $this->Flash->error(__('L\'utilisateur n\'a pas pu être mis à jour. Veuillez réessayer.'));
         }
         $this->set(compact('user'));
         $this->set("title", "Edit User");
@@ -65,9 +65,9 @@ class UsersController extends AppController
     {
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('L\'utilisateur a été supprimé'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('L\'utilisateur n\'a pas pu être supprimé. Veuillez réessayer.'));
         }
 
         return $this->redirect(['action' => 'listUsers']);
